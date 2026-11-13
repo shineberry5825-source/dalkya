@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>달콤한 캬라멜 연구소 | 2027년 1월 GRAND OPEN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-cream: #FDF8EE;
+            --caramel-light: #F7C232;
+            --caramel-main: #D9822B;
+            --caramel-dark: #633213;
+            --text-dark: #3E1F0B;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-cream);
+            background-image: 
+                linear-gradient(to right, rgba(217, 130, 43, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(217, 130, 43, 0.05) 1px, transparent 1px);
+            background-size: 32px 32px;
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 980px;
+            width: 100%;
+            background: var(--white);
+            border: 4px solid var(--caramel-dark);
+            border-radius: 40px;
+            padding: 40px;
+            box-shadow: 0 16px 0 var(--caramel-dark);
+            display: flex;
+            align-items: center;
+            gap: 48px;
+        }
+
+        /* 왼쪽 로고 영역 */
+        .logo-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-box {
+            width: 100%;
+            max-width: 380px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: 6px solid var(--caramel-dark);
+            overflow: hidden;
+            background-color: var(--white);
+            box-shadow: 0 10px 25px rgba(99, 50, 19, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 오른쪽 정보 영역 */
+        .info-section {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: var(--caramel-light);
+            color: var(--caramel-dark);
+            font-family: 'Jua', sans-serif;
+            font-size: 1.05rem;
+            padding: 6px 18px;
+            border-radius: 50px;
+            border: 2px solid var(--caramel-dark);
+            margin-bottom: 20px;
+            box-shadow: 0 3px 0 var(--caramel-dark);
+        }
+
+        h1 {
+            font-family: 'Jua', sans-serif;
+            font-size: 3.2rem;
+            color: var(--caramel-dark);
+            margin-bottom: 14px;
+            line-height: 1.1;
+        }
+
+        .catchphrase {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--caramel-main);
+            margin-bottom: 24px;
+            line-height: 1.6;
+            word-break: keep-all;
+        }
+
+        .details-board {
+            width: 100%;
+            background-color: var(--bg-cream);
+            border: 2px dashed var(--caramel-main);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .detail-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .detail-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-label {
+            font-weight: 700;
+            color: var(--caramel-dark);
+            margin-right: 12px;
+            min-width: 85px;
+        }
+
+        .detail-value {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .detail-value a {
+            color: var(--caramel-dark);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .detail-value a:hover {
+            text-decoration: underline;
+        }
+
+        .action-area {
+            width: 100%;
+        }
+
+        .form-guide {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #6E472B;
+            margin-bottom: 10px;
+        }
+
+        .notify-form {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .notify-form input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid var(--caramel-dark);
+            border-radius: 12px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .notify-form button {
+            background-color: var(--caramel-dark);
+            color: var(--white);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-family: 'Jua', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .notify-form button:hover {
+            background-color: var(--caramel-main);
+        }
+
+        .crew-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background-color: #C05615;
+            color: var(--white);
+            border: 2px solid var(--caramel-dark);
+            padding: 13px;
+            border-radius: 14px;
+            font-family: 'Jua', sans-serif;
+            font-size: 1.1rem;
+            text-decoration: none;
+            box-shadow: 0 4px 0 var(--caramel-dark);
+        }
+
+        .crew-button:hover {
+            background-color: var(--caramel-main);
+        }
+
+        .company-info {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(99, 50, 19, 0.15);
+            font-size: 0.8rem;
+            color: #7A5235;
+            line-height: 1.4;
+            width: 100%;
+        }
+
+        .company-info strong {
+            color: var(--caramel-dark);
+        }
+
+        footer {
+            margin-top: 10px;
+            font-size: 0.75rem;
+            color: #8C6245;
+            width: 100%;
+        }
+
+        /* 반응형 */
+        @media (max-width: 860px) {
+            .container {
+                flex-direction: column;
+                padding: 30px 20px;
+                gap: 24px;
+            }
+            .logo-box {
+                max-width: 260px;
+            }
+            .info-section {
+                align-items: center;
+                text-align: center;
+            }
+            h1 {
+                font-size: 2.3rem;
+            }
+            .catchphrase {
+                font-size: 1.05rem;
+            }
+            .detail-row {
+                justify-content: center;
+            }
+            .company-info, footer {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .notify-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <!-- 왼쪽 로고 영역 (내장 SVG 캐릭터 로고) -->
+        <section class="logo-section">
+            <div class="logo-box">
+                <svg viewBox="0 0 400 400" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="200" cy="200" r="190" fill="#FDF8EE" stroke="#633213" stroke-width="8"/>
+                    <path id="cTop" d="M 60,200 A 140,140 0 1,1 340,200" fill="none" />
+                    <path id="cBot" d="M 340,200 A 140,140 0 1,1 60,200" fill="none" />
+                    
+                    <text font-family="'Jua', sans-serif" font-size="24" fill="#633213" font-weight="bold" letter-spacing="2">
+                        <textPath href="#cTop" startOffset="50%" text-anchor="middle">달콤한 카라멜 연구소</textPath>
+                    </text>
+                    <text font-family="'Jua', sans-serif" font-size="22" fill="#633213" font-weight="bold" letter-spacing="1">
+                        <textPath href="#cBot" startOffset="50%" text-anchor="middle">COFFEE &amp; DESSERT</textPath>
+                    </text>
+
+                    <!-- 네모 카라멜 연구원 캐릭터 -->
+                    <g transform="translate(115, 115)">
+                        <ellipse cx="85" cy="165" rx="45" ry="10" fill="#E6D2B5" opacity="0.7"/>
+                        <rect x="35" y="45" width="100" height="95" rx="18" fill="#FCE265" stroke="#633213" stroke-width="5"/>
+                        <path d="M 40 50 Q 80 42 130 50" fill="none" stroke="#FFF" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+
+                        <!-- 흘러내리는 시럽 모자 -->
+                        <path d="M 70 45 C 70 30, 100 30, 105 45 C 110 35, 130 35, 135 50 L 130 65 C 120 60, 90 60, 70 45 Z" fill="#D9822B" stroke="#633213" stroke-width="4"/>
+                        <rect x="95" y="32" width="22" height="18" rx="3" fill="#D9822B" stroke="#633213" stroke-width="3"/>
+
+                        <!-- 팔 및 비커/커피 -->
+                        <path d="M 35 90 C 15 90, 15 110, 35 110" fill="none" stroke="#FCE265" stroke-width="8" stroke-linecap="round"/>
+                        <path d="M 35 90 C 15 90, 15 110, 35 110" fill="none" stroke="#633213" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M 5 100 L 25 100 L 20 125 L 10 125 Z" fill="#FFF" stroke="#633213" stroke-width="3"/>
+                        <path d="M 12 112 L 23 112" stroke="#633213" stroke-width="2"/>
+                        <path d="M 13 118 Q 16 115 19 118" fill="#D9822B"/>
+
+                        <path d="M 135 90 C 155 90, 155 110, 135 110" fill="none" stroke="#FCE265" stroke-width="8" stroke-linecap="round"/>
+                        <path d="M 135 90 C 155 90, 155 110, 135 110" fill="none" stroke="#633213" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M 145 100 L 165 100 L 160 125 L 150 125 Z" fill="#D9822B" stroke="#633213" stroke-width="3"/>
+                        <ellipse cx="155" cy="100" rx="10" ry="3" fill="#FFF" stroke="#633213" stroke-width="2"/>
+                        <path d="M 152 92 Q 155 87 158 92" fill="none" stroke="#633213" stroke-width="2" stroke-linecap="round"/>
+
+                        <!-- 다리 -->
+                        <rect x="62" y="135" width="14" height="22" rx="7" fill="#FCE265" stroke="#633213" stroke-width="4"/>
+                        <rect x="94" y="135" width="14" height="22" rx="7" fill="#FCE265" stroke="#633213" stroke-width="4"/>
+
+                        <!-- 표정 -->
+                        <circle cx="68" cy="88" r="7" fill="#633213"/>
+                        <circle cx="102" cy="88" r="7" fill="#633213"/>
+                        <circle cx="66" cy="86" r="2.5" fill="#FFF"/>
+                        <circle cx="100" cy="86" r="2.5" fill="#FFF"/>
+                        <ellipse cx="56" cy="96" rx="6" ry="4" fill="#FF8DA1" opacity="0.6"/>
+                        <ellipse cx="114" cy="96" rx="6" ry="4" fill="#FF8DA1" opacity="0.6"/>
+                        <path d="M 77 100 Q 85 108 93 100" fill="none" stroke="#633213" stroke-width="4" stroke-linecap="round"/>
+                    </g>
+                </svg>
+            </div>
+        </section>
+
+        <!-- 오른쪽 정보 영역 -->
+        <section class="info-section">
+            <div class="status-badge">🧪 오픈 준비중 · COMING SOON</div>
+            <h1>달콤한 캬라멜 연구소</h1>
+            <p class="catchphrase">
+                “달콤한 캬라멜 연구소가 2027년,<br>천안 성성호수공원에 찾아옵니다”
+            </p>
+
+            <div class="details-board">
+                <div class="detail-row">
+                    <span class="detail-label">📅 오픈예정일</span>
+                    <span class="detail-value">2027년 1월 중순</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">📍 위치</span>
+                    <span class="detail-value">천안 성성호수공원</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">🤝 가맹문의</span>
+                    <span class="detail-value"><a href="tel:01043455825">010-4345-5825</a> (이준용 대표)</span>
+                </div>
+            </div>
+
+            <div class="action-area">
+                <p class="form-guide">오픈 소식과 첫 방문 웰컴 쿠폰을 가장 먼저 받아보세요!</p>
+                <form class="notify-form" onsubmit="handleNotify(event)">
+                    <input type="text" id="contactInput" placeholder="이메일 또는 휴대폰 번호" required>
+                    <button type="submit">오픈 알림 받기</button>
+                </form>
+
+                <a href="https://docs.google.com/forms/d/1YsRG1tP2q8mxuOx3hTueJtwkkhlt0jhbrHQFggRdpis/viewform" target="_blank" class="crew-button">
+                    달캬랩 크루(바리스타/파티시엘) 지원하기 🧑‍🍳
+                </a>
+            </div>
+
+            <!-- 본사 샤이닝베리 정보 -->
+            <div class="company-info">
+                <strong>본사: 샤이닝베리</strong> | 대표: 이준용<br>
+                주소: 충남 천안시 서북구 두정동 916, 4층 | 고객센터: 010-4345-5825
+            </div>
+
+            <footer>
+                © 2027 달콤한 캬라멜 연구소. All rights reserved.
+            </footer>
+        </section>
+    </main>
+
+    <script>
+        function handleNotify(e) {
+            e.preventDefault();
+            const contact = document.getElementById('contactInput').value;
+            alert(`[${contact}]으로 오픈 사전 알람 등록이 완료되었습니다!\n2027년 1월 중순에 만나요! ✨`);
+            document.getElementById('contactInput').value = '';
+        }
+    </script>
+
+</body>
+</html>
